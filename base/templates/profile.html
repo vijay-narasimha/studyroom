@@ -1,0 +1,53 @@
+{%extends 'main.html'%}
+ {% block content%}
+{% load static %}
+  <main class="profile-page layout layout--3">
+    <div class="container">
+      <!-- Topics Start -->
+      {% include 'topics.html' %}
+      <!-- Topics End -->
+
+      <!-- Room List Start -->
+      <div class="roomList">
+        <div class="profile">
+          <div class="profile__avatar">
+            <div class="avatar avatar--large active">
+              <img src="{{user.avatar.url}}" />
+            </div>
+          </div>
+          <div class="profile__info">
+            <h3>{{user.username}}</h3>
+            <p>@{{user.username}}</p>
+            {%if request.user == user%}
+            <a href="{%url 'updateuser' %}" class="btn btn--main btn--pill">Edit Profile</a>
+            {%endif%}
+          </div>
+          <div class="profile__about">
+            <h3>About</h3>
+            <p>
+             {{user.bio}}
+            </p>
+          </div>
+        </div>
+
+        <div class="roomList__header">
+          <div>
+            <h2>Study Rooms Hosted by {{user.username}}</a>
+            </h2>
+          </div>
+        </div>
+      	{%include 'feed.html'%}
+      </div>
+      <!-- Room List End -->
+
+      <!-- Activities Start -->
+      <div class="activities">
+        <div class="activities__header">
+          <h2>Recent Activities</h2>
+        </div>
+        {% include 'activity.html' %}
+      </div>
+      <!-- Activities End -->
+    </div>
+  </main>
+{%endblock%}
