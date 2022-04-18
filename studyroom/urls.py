@@ -24,4 +24,5 @@ urlpatterns = [
     
 ]
 
+handler404='base.views.notFound'
 urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -172,3 +172,7 @@ def activitiesPage(req):
     room_messages=Message.objects.all()
     context={'room_messages':room_messages}
     return render(req,'activity_mobile.html',context)
+
+def notFound(req,exception):
+    
+    return render(req,'notfound.html')
