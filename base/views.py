@@ -45,6 +45,7 @@ def registerPage(req):
         form=MyUserCreationForm(req.POST)
         if form.is_valid():
             user=form.save(commit=False)
+            user.username=user.username
             user.save()
             login(req,user)
             return redirect('home')
