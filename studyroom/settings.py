@@ -124,6 +124,8 @@ MEDIA_URL= '/images/'
 #STATICFILES_DIRS=['statics']
 STATIC_ROOT=os.path.join(BASE_DIR,'statics')
 
+
+
 MEDIA_ROOT=BASE_DIR / 'statics/images'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
