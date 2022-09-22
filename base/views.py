@@ -50,6 +50,7 @@ def registerPage(req):
             login(req,user)
             return redirect('home')
         else:
+            print('form',form.errors)
             messages.error(req,'An error occurred')
 
     return render(req,'login_register.html',{'form':form})
